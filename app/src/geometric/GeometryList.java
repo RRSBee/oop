@@ -6,7 +6,7 @@ public class GeometryList {
     public int getSize() {
         return shapes.length;
     }
-    public void addShape() {
+    public void addShape(GeometricShape shape) {
         
     }
 }

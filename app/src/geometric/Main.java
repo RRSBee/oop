@@ -8,13 +8,13 @@ public class Main {
 		GeometryList GeomList = new GeometryList();
 		CommandHandler handler = new CommandHandler();
 		MainUI ui = new MainUI();
-		ui.InitMessage();
+		ui.PrintInitMessage();
 
 		while (true) {
 			String command = ui.fetchUserInput(scanner, "> ");
-			String response = handler.HandleCommand(command, GeomList);
+			String response = handler.HandleCommand(command, ui, GeomList);
 			if (response == "quit") {
-				ui.ExitMessage();
+				ui.PrintExitMessage();
 				System.exit(0);
 			} else {
 				System.out.println(response);
