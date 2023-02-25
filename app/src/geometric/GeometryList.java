@@ -1,7 +1,7 @@
 package geometric;
 
 public class GeometryList {
-    GeometricShape[] shapes = {};
+    GeometricShape[] shapes = {};  //needs to have a fixed size
 
     public int getSize() {
         return shapes.length;
