@@ -1,7 +1,8 @@
 package geometric;
 
 public interface GeometricShape {
-    void printBorders();
+    String printBorders(String leftBorder, String rightBorder, String bottomBorder, String topBorder);
     double getArea();
-    boolean moveShape();
+    double moveShape();
 }
+

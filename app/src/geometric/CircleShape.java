@@ -10,13 +10,33 @@ public class CircleShape implements GeometricShape {
         y = _y;
         r = _r;
     }
-    public void printBorders() {
 
-    }
+
+    @Override
     public double getArea() {
-        return Math.PI*(r*r);
+        return Math.PI*(r *r);
     }
-    public boolean moveShape() {
-        return false;
+
+    @Override
+    public double moveShape() {
+        return 0.0;
     }
+
+
+    @Override
+    public String printBorders(String leftBorder, String rightBorder, String bottomBorder, String topBorder) {
+        leftBorder = Double.toString(x - r);
+        rightBorder = Double.toString(x + r);
+        bottomBorder = Double.toString(y - r);
+        topBorder = Double.toString(y + r );
+
+
+
+
+
+
+        throw new UnsupportedOperationException("Unimplemented method 'printBorders'");
+ 
+
+
 }
