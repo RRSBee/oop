@@ -7,9 +7,11 @@ public class MainUI {
     final String IntroMsg = "Geometry Console Interface (GCI) 2023";
     final String quitMsg = "Bye";
     final String showListEmptyMsg = "The list of geometric shapes is empty!";
-    final String formatExcDoubleIntErr = "E: All parameters must be of type int or double!";
-    final String getNotRecognizedErr = "E: The entered command is not recognized by the console. Use the 'h' or 'help' command for the full list of commands.";
-    final String createdCircleShape = "Created circle shape";
+    final String formatExcDoubleIntErr = "[!] Parameter types incorrect, please use the 'h' or 'help' command for information on how to use this command!";
+    final String getNotRecognizedErr = "[!] The entered command is not recognized by the console. Use the 'h' or 'help' command for the full list of commands.";
+    final String createdCircleShape = "Created new circle shape";
+    final String createdRectangleShape = "Created new rectangle shape";
+    final String failedToRemoveShape = "[!] Failed to remove shape";
 
     public void PrintInitMessage() {
         System.out.println(helpMsg);
@@ -29,6 +31,12 @@ public class MainUI {
     }
     public String getCreatedCircleShapeMsg() {
         return (createdCircleShape+'\n');
+    }
+    public String getCreatedRectangleShapeMsg() {
+        return (createdRectangleShape+'\n');
+    }
+    public String getFailedToRemoveShapeMsg() {
+        return (failedToRemoveShape+'\n');
     }
 
     public String fetchUserInput(Scanner scanner, String prepend) {

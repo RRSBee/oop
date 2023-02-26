@@ -15,26 +15,36 @@ public class RectangleShape implements GeometricShape {
 
     
     public String getShapeInfo() {
-        return (Double.toString(x) + " " + Double.toString(y) + " " + Double.toString(w) + " " + Double.toString(h));
+        return ("Rectangle: x=" + Double.toString(x) + " y=" + Double.toString(y) + " w=" + Double.toString(w) + " h=" + Double.toString(h));
     }
 
     @Override
     public double getArea() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getArea'");
+        return (w*h);
     }
 
     @Override
-    public double moveShape() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'moveShape'");
+    public boolean moveShape(double dx, double dy) {
+        x += dx;
+        y += dy;
+        return true;
     }
 
+    @Override
+    public int compareTo(GeometricShape other) {
+        if (this.getArea() == other.getArea()) { return 0; }
+        else if (this.getArea() > other.getArea()) { return 1; }
+        else { return -1; }
+    }
 
     @Override
-    public String printBorders(String leftBorder, String rightBorder, String bottomBorder, String topBorder) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'printBorders'");
+    public double getLeftmostPoint() {
+        return (x - (w / 2));
+    }
+
+    @Override
+    public double getRightmostPoint() {
+        return (x + (w / 2));
     }
     
 }

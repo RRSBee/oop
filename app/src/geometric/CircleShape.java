@@ -12,7 +12,7 @@ public class CircleShape implements GeometricShape {
     }
 
     public String getShapeInfo() {
-        return ("Circle x="+Double.toString(x) + " y=" + Double.toString(y) + " r=" + Double.toString(r));
+        return ("Circle: x="+Double.toString(x) + " y=" + Double.toString(y) + " r=" + Double.toString(r));
     }
 
     @Override
@@ -21,18 +21,26 @@ public class CircleShape implements GeometricShape {
     }
 
     @Override
-    public double moveShape() {
-        return 0.0;
+    public boolean moveShape(double dx, double dy) {
+        x += dx;
+        y += dy;
+        return true;
     }
 
+    @Override
+    public int compareTo(GeometricShape other) {
+        if (this.getArea() == other.getArea()) { return 0; }
+        else if (this.getArea() > other.getArea()) { return 1; }
+        else { return -1; }
+    }
 
     @Override
-    public String printBorders(String leftBorder, String rightBorder, String bottomBorder, String topBorder) {
-        leftBorder = Double.toString(x - r);
-        rightBorder = Double.toString(x + r);
-        bottomBorder = Double.toString(y - r);
-        topBorder = Double.toString(y + r );
+    public double getLeftmostPoint() {
+        return (x - r);
+    }
 
-        throw new UnsupportedOperationException("Unimplemented method 'printBorders'");
+    @Override
+    public double getRightmostPoint() {
+        return (x + r);
     }
 }

@@ -1,9 +1,11 @@
 package geometric;
 
-public interface GeometricShape {
-    String printBorders(String leftBorder, String rightBorder, String bottomBorder, String topBorder);
+public interface GeometricShape extends Comparable<GeometricShape> {
     String getShapeInfo();
     double getArea();
-    double moveShape();
+    double getLeftmostPoint();
+    double getRightmostPoint();
+    boolean moveShape(double dx, double dy);
+    int compareTo(GeometricShape other);
 }
 
