@@ -11,6 +11,9 @@ public class CircleShape implements GeometricShape {
         r = _r;
     }
 
+    public String getShapeInfo() {
+        return ("Circle x="+Double.toString(x) + " y=" + Double.toString(y) + " r=" + Double.toString(r));
+    }
 
     @Override
     public double getArea() {
@@ -30,13 +33,6 @@ public class CircleShape implements GeometricShape {
         bottomBorder = Double.toString(y - r);
         topBorder = Double.toString(y + r );
 
-
-
-
-
-
         throw new UnsupportedOperationException("Unimplemented method 'printBorders'");
- 
-
-
+    }
 }

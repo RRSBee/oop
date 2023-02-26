@@ -13,6 +13,10 @@ public class RectangleShape implements GeometricShape {
         h = _h;
     }
 
+    
+    public String getShapeInfo() {
+        return (Double.toString(x) + " " + Double.toString(y) + " " + Double.toString(w) + " " + Double.toString(h));
+    }
 
     @Override
     public double getArea() {

@@ -3,8 +3,14 @@ package geometric;
 public class CommandHandler {
 
     String showCommand(String command, GeometryList GeomList) {
-        if (GeomList.getSize() > 0) {
-            return "---- Geometric shapes ----";
+        String resultString = "";
+        int listSize = GeomList.getSize();
+        if (listSize > 0) {
+            resultString += "---- Geometric shapes ----\n";
+            for (int i = 0; i < listSize; i++) {
+                resultString += Integer.toString(i) + ": " + GeomList.getGeometricShapes()[0].getShapeInfo() + "\n";
+            }
+            return (resultString+"\n");
         }
         return "The list of geometric shapes is empty!\n";
     }
@@ -22,7 +28,7 @@ public class CommandHandler {
             }
             CircleShape shape = new CircleShape(x, y, r);
             GeomList.addShape(shape);
-            return Integer.toString(tokenArray.length); // WORK IN PROGRESS...
+            return ui.getCreatedCircleShapeMsg(); // WORK IN PROGRESS...
         }
         return "E: " + Integer.toString(tokenArray.length-1) + " parameters were given, 3 were expected.\n";
     }
