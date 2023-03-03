@@ -1,5 +1,11 @@
+// Made by Quint van Oorschot s1098812
+// Raveena Boedhram s1074078
+
 package geometric;
-public class RectangleShape implements GeometricShape {
+
+import java.util.Comparator;
+
+public class RectangleShape implements GeometricShape, Comparator {
 
     double x;
     double y;
@@ -45,6 +51,13 @@ public class RectangleShape implements GeometricShape {
     @Override
     public double getRightmostPoint() {
         return (x + (w / 2));
+    }
+
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'compare'");
     }
     
 }
