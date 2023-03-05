@@ -8,4 +8,20 @@ package quiz;
 public class Game {
     // implements the logic of asking two rounds of questions.
 
+    private static void introMsg() {
+        System.out.println("Official Quiz Challenge (OQC 2023):\n");
+    }
+
+    private static void OpenQuestions() {
+        int i = 0;
+        OpenQuestionsList questions = new OpenQuestionsList();
+        questions.importQuestions();
+        OpenQuestionData OpenQuestionData = questions.getQuestionByIndex(i);
+        OpenQuestion openQuestion = new OpenQuestion(OpenQuestionData.getQuestion(), OpenQuestionData.getAnswer(), OpenQuestionData.getScore());
+    }
+
+    public void startGame() {
+        introMsg();
+        OpenQuestions();
+    }
 }

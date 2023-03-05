@@ -7,51 +7,44 @@ package quiz;
       This means that a good question from this category only has one correct answer.
      */
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-import javax.swing.event.SwingPropertyChangeSupport;
-
 public class OpenQuestion extends Question {
-    private String answer;
-    private String question;
-    private List<Question> questions;
+    private String answer, question, userAnswer;
+    private List<Question> questions = new ArrayList<>();
+    private List<Question> wrongQuestions = new ArrayList<>();
+    private List<Question> wrongQuestions2 = new ArrayList<>();
     private int round;
-    private Question q;
-    private List<Question> wrongQuestions;
-    private String userAnswer;
-    private List<Question> wrongQuestions2;
 
-    public OpenQuestion(String question, String answer, int score) { // first round
-        questions = new LinkedList<>();
-        wrongQuestions = new LinkedList<>();
-        int round = 1;
+    public OpenQuestion(String _question, String _answer, int _score) { // In case of score defined
+        super(_score);
     
-       for (int i = 0; i < questions.size(); i++) {
-        Question q = questions.get(i);
-        toString(i, q);
-        Scanner scanner = new Scanner(System.in)
-        String userAnswer = scanner.nextLine();
-            if (q.isCorrect(answer)){
-            System.out.println("Correct! You scored " + q.getScore() + "point(s)."); 
-            } else {
-                System.out.println("Incorrect! The correct answer is: " + q.correctAnswer());
-                q.setScore(0);
-                wrongQuestions.add(q);
-                }
-    
+        question = _question;
+        answer = _answer;
+
+        System.out.println(question);
+        Scanner scanner = new Scanner(System.in);
+        userAnswer = scanner.nextLine();
+        if (isCorrect(answer)) {
+            System.out.println("Correct! You scored " + getScore() + " point(s)."); 
+        } else {
+            System.out.println("Incorrect! The correct answer is: " + correctAnswer());
+            setScore(0);
         }
+        scanner.close();
+
     }
 
-    public OpenQuestion(String question, String answer) { // second round
+    public OpenQuestion(String question, String answer) { // In case of no score defined
         this(question, answer, 3);
-        int round = 2;
-
+        System.out.println("THIS FUNCTION IS BROKEN. COPY FROM OTHER OPEN QUESTION CONSTRUCTOR");
         for (int i = 0; i < wrongQuestions.size(); i++) {
             Question q = questions.get(i);
             toString(i, q);
-            Scanner scanner = new Scanner(System.in)
+            Scanner scanner = new Scanner(System.in);
             String userAnswer = scanner.nextLine();
             if (q.isCorrect(answer)) { 
                 System.out.println("Correct! You scored " + q.getScore() + "point(s)."); 
@@ -61,18 +54,14 @@ public class OpenQuestion extends Question {
                  q.setScore(0);
                  wrongQuestions2.add(q);
             }
+            scanner.close();
             System.out.println(totalScore());
         }
-
-        
-
-
     }
 
     @Override
     public String toString(int i, Question q) {
         return "Round " + round + "Question: " + i + ": " + q;
-
     }
 
     @Override
