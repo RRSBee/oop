@@ -17,14 +17,17 @@ public class ThisThatQuestion extends MultipleChoiceQuestion{
     
     // For these questions, answers are not labeled, but formatted as text.
 
-    public ThisThatQuestion(String question, String[] answers, int correctAnswer, int score) {
-        super(question, answers, correctAnswer, score);
+    public ThisThatQuestion (String question , String answer1 , String answer2 , int correctAnswer , int score) {
+       // idk wrm error message
+        
     }
     
 
-    public ThisThatQuestion(String question, String[] answers, int correctAnswer) {
-        super(question, answers, correctAnswer);
+    public ThisThatQuestion (String question , String answer1 , String answer2 , int correctAnswer ) {
+        // idk what should be here?
     }
+
+ 
 
     public String totalScore(){
         int scoreRound1 = questions.stream().mapToInt(Question::getScore).sum();

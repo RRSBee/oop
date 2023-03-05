@@ -48,7 +48,7 @@ public class MultipleChoiceQuestion extends Question {
         
     }
 
-  
+
 
     @Override
     public String toString(int i, Question q) {
@@ -71,21 +71,6 @@ public class MultipleChoiceQuestion extends Question {
         throw new UnsupportedOperationException("Unimplemented method 'correctAnswer'");
     }
 
-    @Override
-    public void addQuestions() {
-        questions.add(new MultipleChoiceQuestion("What is the best achievable complexity of in situ sorting?",
-                new String[] { "O(N^2)", "O(N log N)", "O(N)", "O(log N)" }, 1, 4));
-        questions.add(new MultipleChoiceQuestion("How do you print \"Hello world\" on a line in Java?",
-                new String[] { "System.out.print(\"Hello world\");", "System.out.println(\"Hello world\");",
-                        "cout << \"Hello world\";" },
-                1));
-        questions.add(new MultipleChoiceQuestion("How do you read a non-empty word in Java using scanner s?",
-                new String[] { "s.nextline()", "s.next(\"\\S+\")", "s.next(\"\\a*\")", "s.next(\"\\S*\")",
-                        "s.next(\"\\\\s+\")", "s.next(\"\\s+\")", "s.nextString(\"\\s*\")", "s.next(\"\\\\S+\")",
-                        "s.nextString()" },
-                7, 1));
-        throw new UnsupportedOperationException("Unimplemented method 'addQuestions'");
-    }
 
     public String totalScore(){
         int scoreRound1 = questions.stream().mapToInt(Question::getScore).sum();

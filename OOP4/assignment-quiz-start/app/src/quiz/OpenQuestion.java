@@ -74,18 +74,7 @@ public class OpenQuestion extends Question {
         return answer;
     }
 
-    @Override
-    public void addQuestions() {
-        questions.add(new OpenQuestion("What is the capital of France?", "Paris", 3));
-        questions.add(new OpenQuestion("How many roads must a man walkdown?", "42", 5));
-        questions.add(new OpenQuestion("What is the big O complexity of binary search?", "O(log N)"));
-        questions.add(
-                new OpenQuestion("How would you read an integer i from scanner s in Java?", "i = s.nextInt();", 2));
-        questions.add(new OpenQuestion(
-                "What is the minimum amount of constructors you have to define for a class in Java?", "0", 2));
-        throw new UnsupportedOperationException("Unimplemented method 'addQuestions'");
-    }
-
+    
     public String totalScore(){
         int scoreRound1 = questions.stream().mapToInt(Question::getScore).sum();
         int scoreRound2 = wrongQuestions.stream().mapToInt(Question::getScore).sum() 
