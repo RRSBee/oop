@@ -28,8 +28,6 @@ public abstract class Question { // BASE CLASS
      */
     public abstract String correctAnswer();
 
-    public abstract void addQuestions();
-
 
     public int getScore() {
         return score;
