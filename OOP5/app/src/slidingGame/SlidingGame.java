@@ -37,6 +37,30 @@ public class SlidingGame implements Configuration {
 				holeY = p / N;
 			}
 		}
+		printPuzzle(start, 'x', true);
+	}
+
+	public void printPuzzle(int[] puzzle, char holeChar,boolean printSize) {
+
+		// Print puzzle size
+		if (printSize) { System.out.println(N + "x" + N); }
+		// Print upper part of frame
+		System.out.print("+");
+		for (int i = 0; i < (puzzle.length - N + 1); i++) { System.out.print("-"); }
+		System.out.print("+\n");
+
+		// Print 'blocks' and side frames
+		for (int p = 0; p < puzzle.length; p++) {
+			if (p == 0) { System.out.print("|\s"); }
+			System.out.print(((puzzle[p] == HOLE) ? Character.toString(holeChar) : puzzle[p]) + "\s");
+			if ((p + 1) % N == 0 && p != (puzzle.length-1)) { System.out.print("|\n|\s"); }
+		}
+		System.out.print("|\n");
+
+		// Print lower part of frame
+		System.out.print("+");
+		for (int i = 0; i < (puzzle.length - N + 1); i++) { System.out.print("-"); }
+		System.out.print("+\n");
 	}
 
 	public int getManhattanDistance() {
@@ -69,7 +93,10 @@ public class SlidingGame implements Configuration {
 
 	@Override
 	public boolean isSolution() {
-		throw new UnsupportedOperationException("isGoal : not supported yet.");
+		/* The given sliding game is a solution only if all numbers appear in a chronologic order
+			AND the empty block is in the bottom-right corner. */
+
+		throw new UnsupportedOperationException("successors : not supported yet.");
 	}
 
 	@Override
